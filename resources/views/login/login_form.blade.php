@@ -16,14 +16,27 @@
     @csrf
     <h1 class="h3 mb-3 fw-normal">ログインフォーム</h1>
     @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
+     <div class="alert alert-danger">
+         <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+                @if (session('login_error'))
+                <div class="alert alert-danger">
+                    {{ session('login_error') }}
+                </div>
+                @endif
+         </ul>
+             @if (session('logout'))
+                <div class="alert alert-danger">
+                    {{ session('logout') }}
+                </div>
+            @endif
+     </div>
     @endif
+    
+    <x-alert type="danger" :session="session('danger')"/>
+
     <div class="form-floating">
       <input type="email" name="email"
       class="form-control" id="floatingInput" placeholder="name@example.com">
