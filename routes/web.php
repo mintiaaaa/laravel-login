@@ -19,7 +19,7 @@ use App\Http\Controllers\Auth\AuthController;
 Route::middleware(['guest'])->group(function () {
     //ログインフォーム
     Route::get('/',  [AuthController::class,
-    'showLogin'])->name('showLogin');
+    'showLogin'])->name('login.show');
 
     //ログイン画面
     Route::post('login',
