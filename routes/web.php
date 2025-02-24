@@ -34,3 +34,9 @@ Route::get('home', function() {
   //　ログアウト
   Route::post('logout',[AuthController::class, 'logout'])->name('logout');
 });
+
+    // 会員登録フォーム
+Route::get('register', [AuthController::class, 'showRegister'])->name('register.show');
+
+    // 会員登録処理
+Route::post('register', [AuthController::class, 'register'])->name('register');
