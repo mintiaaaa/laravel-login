@@ -7,6 +7,10 @@ use App\Http\Requests\LoginFormRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Http\Requests\RegisterFormRequest;
+use Illuminate\Support\Facades\Hash;
+
+
 
 class AuthController extends Controller
 {
@@ -80,4 +84,25 @@ class AuthController extends Controller
 
         return redirect()->route('login.show')->with('danger', 'ログアウトしました！');
     } 
+
+    public function showRegister()
+{
+    return view('auth.register_form');
+}
+
+
+    //会員登録
+    public function register(RegisterFormRequest $request)
+{
+    // ユーザー作成
+    $user = User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => $request->password,  // ここでそのままパスワードを渡す
+        //　メモ：ここでハッシュ化するとダブルでハッシュ化されてしまう
+    ]);
+
+    return redirect()->route('login.show')->with('success', '会員登録が完了しました！');
+}
+
 }

@@ -99,4 +99,11 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    //パスワードのハッシュ化
+    public function setPasswordAttribute($value)
+{
+    $this->attributes['password'] = bcrypt($value);  // bcrypt でハッシュ化
+}
+
 }
