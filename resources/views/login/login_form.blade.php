@@ -53,6 +53,8 @@
     <button class="btn btn-primary w-100 py-2" type="submit">ログイン</button>
 <!-- 会員登録ページへのリンク -->
 <p>まだアカウントを作成していませんか？ <a href="{{ route('register.show') }}">会員登録はこちら</a></p>
+<p>掲示板を見るには <a href="{{ route('posts.index') }}">こちら</a></p>
+
 </form>
 
 </body>
