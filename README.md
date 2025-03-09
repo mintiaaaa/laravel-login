@@ -37,7 +37,7 @@ https://docs.docker.com/docker-for-windows/
 1. gitリポジトリからクローンする
 
     ```
-    git clone git@github.com:kbysjun/docker.git
+    git clone git@github.com:mintiaaaa/docker.git
     ```
 
 2. 当該フォルダの.env.localをコピーし、.envで保存する
